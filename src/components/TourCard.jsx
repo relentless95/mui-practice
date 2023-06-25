@@ -10,9 +10,10 @@ import { ThemeContext } from "../context/theme.context";
 import { ThemeProvider } from "@mui/material";
 // import {ThemeProvider, createTheme } from "@mui/material";
 import data from "../data.json";
+import { Link } from "react-router-dom";
 console.log("data--->", data);
 
-const TourCard = ({ tour }) => {
+const TourCard = ({ tour, theIndex }) => {
   // const theme = createTheme({
   //   components: {
   //     MuiTypography: {
@@ -46,16 +47,10 @@ const TourCard = ({ tour }) => {
   // console.log(tour);
 
   return (
-    <Grid item xs={3} key={tour.id}>
+    <Grid item xs={3}>
       <ThemeProvider theme={theme}>
         <Paper elevation={3}>
-          <img
-            src={
-              tour.image
-            }
-            alt=""
-            className="img"
-          />
+          <img src={tour.image} alt="" className="img" />
           <Box padding={1}>
             <Typography component="h2" variant="subtitle1">
               {tour.name}
@@ -85,6 +80,18 @@ const TourCard = ({ tour }) => {
               <Typography variant="h6" component="h3" marginTop={0}>
                 From C ${tour.price}
               </Typography>
+              <Link
+                to={`/${tour.id}`}
+                style={{
+                  listStyle: "none",
+                  textDecoration: "none",
+                  cursor: "pointer",
+                  color: "black",
+                  fontFamily: "roboto",
+                }}
+              >
+                More info...
+              </Link>
             </Box>
           </Box>
         </Paper>
