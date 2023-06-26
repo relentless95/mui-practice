@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 import { createTheme } from "@mui/material";
 
 const ThemeContext = createContext();
@@ -30,11 +30,11 @@ const TheThemeProvider = ({ children }) => {
       },
     },
   });
+  const [tourName, setTourName] = useState("");
   return (
-    <ThemeContext.Provider value={{theme}}>
-        {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={{ theme, tourName, setTourName }}>
+      {children}</ThemeContext.Provider>
   );
 };
 
-export {ThemeContext, TheThemeProvider};
+export { ThemeContext, TheThemeProvider };

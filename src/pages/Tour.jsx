@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Container from "@mui/material/Container";
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
@@ -7,20 +7,69 @@ import CustomizedAccordions from "../components/Accordion";
 import Paper from "@mui/material/Paper";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BasicModal from "../components/Modal";
+import { useParams } from "react-router-dom";
+import data from "../data.json";
+import { ThemeContext } from "../context/theme.context";
 // import BottomNavigationAction from "@mui/material";
 // import BottomNavigation from "@mui/material";
 // import { RestoreIcon, FavoriteIcon, ArchiveIcon } from "@mui/icons-material";
 
 const Tour = () => {
+  const { theme, tourName, setTourName } = useContext(ThemeContext);
+
+  const { tourId } = useParams();
+  console.log("the tour name---->", tourName);
+
+  const findTour = () => {
+    const specific = data[0]["tours"].find((item) => item.name === tourName);
+
+    if (parseInt(tourId) < 5 && specific) {
+      switch (parseInt(tourId)) {
+        case 1:
+          console.log(data[0]["tours"][0]);
+          return data[0]["tours"][0];
+          break;
+        case 2:
+          return data[0]["tours"][1];
+          break;
+        case 3:
+          return data[0]["tours"][2];
+          break;
+        case 4:
+          return data[0]["tours"][3];
+          break;
+      }
+    } else {
+      console.log("here2");
+
+      switch (parseInt(tourId)) {
+        case 4:
+          return data[1]["tours"][0];
+          break;
+        case 5:
+          return data[1]["tours"][1];
+          break;
+        case 6:
+          return data[1]["tours"][2];
+          break;
+        case 7:
+          return data[1]["tours"][3];
+          break;
+      }
+    }
+  };
+  const info = findTour();
+
   return (
     <Container sx={{ width: 900 }}>
       <Typography variant="h3" component="h1" marginTop={3}>
-        Explore the world in vegas
+        {info.name}
       </Typography>
       <Box marginTop={3} sx={{ display: "flex", alignItems: "center" }}>
         <img
           src={
-            "https://images.unsplash.com/photo-1517232115160-ff93364542dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FzaW5vfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+            // "https://images.unsplash.com/photo-1517232115160-ff93364542dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FzaW5vfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+            info.image
           }
           alt=""
           height={325}
@@ -55,7 +104,7 @@ const Tour = () => {
         elevation={3}
       >
         <BottomNavigation>
-           <BasicModal/>
+          <BasicModal />
         </BottomNavigation>
       </Paper>
     </Container>

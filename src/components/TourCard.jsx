@@ -40,11 +40,12 @@ const TourCard = ({ tour, theIndex }) => {
   //     },
   //   },
   // });
-  const { theme } = useContext(ThemeContext);
+  const { theme, tourName, setTourName, } = useContext(ThemeContext);
   // const [tourData, setTourData] = useState(data[0]);
   // console.log("tourData", tourData);
   // console.log(theme);
   // console.log(tour);
+  console.log("looking for this--->", tourName)
 
   return (
     <Grid item xs={3}>
@@ -80,7 +81,9 @@ const TourCard = ({ tour, theIndex }) => {
               <Typography variant="h6" component="h3" marginTop={0}>
                 From C ${tour.price}
               </Typography>
-              <Typography component="h2" variant="subtitle1">
+              <Typography component="h2" variant="subtitle1"  onClick={() => {
+                    setTourName(tour.name);
+                  }}>
                 <Link
                   to={`/${tour.id}`}
                   style={{

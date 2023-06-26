@@ -16,7 +16,7 @@ function App() {
       <SearchAppBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/:id" element={<Tour />} />
+        <Route path="/:tourId" element={<Tour />} />
       </Routes>
     </>
   );
