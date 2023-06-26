@@ -80,18 +80,20 @@ const TourCard = ({ tour, theIndex }) => {
               <Typography variant="h6" component="h3" marginTop={0}>
                 From C ${tour.price}
               </Typography>
-              <Link
-                to={`/${tour.id}`}
-                style={{
-                  listStyle: "none",
-                  textDecoration: "none",
-                  cursor: "pointer",
-                  color: "black",
-                  fontFamily: "roboto",
-                }}
-              >
-                More info...
-              </Link>
+              <Typography component="h2" variant="subtitle1">
+                <Link
+                  to={`/${tour.id}`}
+                  style={{
+                    listStyle: "none",
+                    textDecoration: "none",
+                    cursor: "pointer",
+                    color: "black",
+                    fontFamily: "roboto",
+                  }}
+                >
+                  More info...
+                </Link>
+              </Typography>
             </Box>
           </Box>
         </Paper>
