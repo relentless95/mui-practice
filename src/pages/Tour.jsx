@@ -28,16 +28,15 @@ const Tour = () => {
         case 1:
           console.log(data[0]["tours"][0]);
           return data[0]["tours"][0];
-          break;
+
         case 2:
           return data[0]["tours"][1];
-          break;
+
         case 3:
           return data[0]["tours"][2];
-          break;
+
         case 4:
           return data[0]["tours"][3];
-          break;
       }
     } else {
       console.log("here2");
@@ -45,16 +44,15 @@ const Tour = () => {
       switch (parseInt(tourId)) {
         case 4:
           return data[1]["tours"][0];
-          break;
+
         case 5:
           return data[1]["tours"][1];
-          break;
+
         case 6:
           return data[1]["tours"][2];
-          break;
+
         case 7:
           return data[1]["tours"][3];
-          break;
       }
     }
   };
