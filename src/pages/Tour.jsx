@@ -4,6 +4,12 @@ import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import ImageCollage from "../components/ImageCollage";
 import CustomizedAccordions from "../components/Accordion";
+import Paper from "@mui/material/Paper";
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BasicModal from "../components/Modal";
+// import BottomNavigationAction from "@mui/material";
+// import BottomNavigation from "@mui/material";
+// import { RestoreIcon, FavoriteIcon, ArchiveIcon } from "@mui/icons-material";
 
 const Tour = () => {
   return (
@@ -44,7 +50,14 @@ const Tour = () => {
         <CustomizedAccordions />
       </Box>
 
-      <Box></Box>
+      <Paper
+        sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
+        elevation={3}
+      >
+        <BottomNavigation>
+           <BasicModal/>
+        </BottomNavigation>
+      </Paper>
     </Container>
   );
 };
